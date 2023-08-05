@@ -43,10 +43,8 @@ const AddBook = () => {
             <div className='flex justify-center items-center'>
                 <div className="flex items-center w-96 mt-6">
                     <div className="border-t-2 border-blue-800 w-36 h-0 flex-1 mr-3"></div>
-
                     <TbSquareRotatedFilled className='text-blue-800' />
                     <TbSquareRotatedFilled className='text-blue-800' />
-
                     <div className="border-t-2 border-blue-800 h-0 flex-1 ml-3"></div>
                 </div>
             </div>

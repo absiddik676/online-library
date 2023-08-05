@@ -27,7 +27,7 @@ const Banner = () => {
                     delay: 2500,
                     disableOnInteraction: false,
                 }}
-                speed={1200}
+                speed={1500}
                 pagination={{
                     clickable: true,
                 }}

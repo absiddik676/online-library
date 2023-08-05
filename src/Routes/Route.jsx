@@ -9,6 +9,7 @@ import Signup from "../pages/Signup/Signup";
 import Dashboard from "../Layout/Dashboard";
 import AddBook from "../pages/Dashboard/Admin/AddBook/AddBook";
 import Books from "../pages/Books/Books";
+import AllUser from "../pages/Dashboard/Admin/AllUser/AllUser";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/addbook',
                 element:<AddBook/>
+            },
+            {
+                path:'/dashboard/alluser',
+                element:<AllUser/>
             }
         ]
     }
