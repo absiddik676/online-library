@@ -8,6 +8,7 @@ import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
 import Dashboard from "../Layout/Dashboard";
 import AddBook from "../pages/Dashboard/Admin/AddBook/AddBook";
+import Books from "../pages/Books/Books";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home/>
+            },
+            {
+                path:'/books',
+                element:<Books/>
             }
         ]
     },

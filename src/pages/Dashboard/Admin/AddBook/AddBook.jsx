@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 const AddBook = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit,  formState: { errors }, reset } = useForm();
     const onSubmit = data => {
         const formData = new FormData()
         formData.append('image',data.image[0])
@@ -28,6 +28,7 @@ const AddBook = () => {
             console.log(saveData);
             axios.post('http://localhost:80/linrayAPI/book/save',saveData)
             .then(res=>{
+                reset()
                 console.log(res.data);
             })
 

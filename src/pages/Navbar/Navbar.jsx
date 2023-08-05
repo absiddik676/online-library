@@ -13,13 +13,15 @@ const Navbar = () => {
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             
                             <Link to='/dashboard'>Dashboard</Link>
+                            <Link to='/dashboard'>Books</Link>
                         </ul>
                     </div>
                     <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal gap-4 px-1">
                         <Link to='/dashboard/addbook'>Dashboard</Link>
+                        <Link to='/books'>Books</Link>
                     </ul>
                 </div>
                 <div className="navbar-end">
