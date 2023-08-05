@@ -1,10 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import lottie from 'lottie-web';
+import { useForm } from "react-hook-form";
 import animationData from '../../assets/animation/animation_lkwut5db.json';
+import { AuthContext } from '../../provider/AuthProvider';
 const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const {loginUser} = useContext(AuthContext)
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
@@ -27,6 +30,18 @@ const Login = () => {
         return <div ref={animationContainer} />;
     };
 
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        console.log(data);
+        loginUser(data.email,data.password)
+        .then(result =>{
+            console.log(result);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    }
+
     return (
         <div>
             <div>
@@ -39,7 +54,7 @@ const Login = () => {
                     </div>
                     <div className="card flex-shrink-0 w-1/2 max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
-                            <form >
+                            <form onSubmit={handleSubmit(onSubmit)} >
                                 <div >
                                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                         Email address
@@ -51,7 +66,7 @@ const Login = () => {
                                         autoComplete="email"
                                         className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                         placeholder="Email address"
-                                        
+                                        {...register("email", { required: true })}
                                     />
                                     
                                 </div>
@@ -67,6 +82,7 @@ const Login = () => {
                                             autoComplete="current-password"
                                             className="mt-1  block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                             placeholder="Password"
+                                            {...register("password", { required: true })}
                                             
                                         />
                                         <button

@@ -6,7 +6,7 @@ import { TbSquareRotatedFilled } from "react-icons/tb";
 const Books = () => {
     const [books, setBooks] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:80/linrayAPI/book')
+        axios.get('http://localhost:80/linrayAPI/index.php?url=/allbook')
             .then(res => {
                 console.log(res.data);
                 setBooks(res.data)

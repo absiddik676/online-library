@@ -26,7 +26,7 @@ const AddBook = () => {
                 img:imgURL
             }
             console.log(saveData);
-            axios.post('http://localhost:80/linrayAPI/book/save',saveData)
+            axios.post('http://localhost:80/linrayAPI/index.php?url=/addBook',saveData)
             .then(res=>{
                 reset()
                 console.log(res.data);

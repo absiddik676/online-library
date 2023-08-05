@@ -4,6 +4,7 @@ import lottie from 'lottie-web';
 import { useForm } from "react-hook-form";
 import animationData from '../../assets/animation/animation_lkwwbwgq.json';
 import { AuthContext } from '../../provider/AuthProvider';
+import axios from 'axios';
 const Signup = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const {createUser,addUserNameAndPhoto} = useContext(AuthContext)
@@ -44,6 +45,13 @@ const Signup = () => {
             console.log(res);
             addUserNameAndPhoto(data.name, photoURL );
             reset()
+            const saveUser = { name: data.name, email: data.email, gender:data.gender, role:'student',img:photoURL}
+            console.log(saveUser);
+            axios.post('http://localhost:80/linrayAPI/index.php?url=/saveUser',saveUser)
+            .then(res=>{
+                reset()
+                console.log(res.data);
+            })
         })
         .catch(error  =>{
             console.log(error);
@@ -150,7 +158,7 @@ const Signup = () => {
                                             name="gender"
                                             className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                             defaultValue={''}
-
+                                            {...register("gender")}
                                         >
                                             <option value="" disabled >Select gender</option>
                                             <option value="male">Male</option>
