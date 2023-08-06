@@ -10,6 +10,7 @@ import Dashboard from "../Layout/Dashboard";
 import AddBook from "../pages/Dashboard/Admin/AddBook/AddBook";
 import Books from "../pages/Books/Books";
 import AllUser from "../pages/Dashboard/Admin/AllUser/AllUser";
+import MyReqBook from "../pages/Dashboard/User/MyReqBook/MyReqBook";
 
 const router = createBrowserRouter([
     {
@@ -45,7 +46,12 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard/alluser',
                 element:<AllUser/>
-            }
+            },
+            {
+                path:'/dashboard/reqBook',
+                element:<MyReqBook/>
+            },
+
         ]
     }
 ]);
