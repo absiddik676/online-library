@@ -11,6 +11,7 @@ const MyReqBook = () => {
         .then(res=>{
             const myBook = res?.data.filter(book=>book?.studentEmail === user?.email)
             setBooks(myBook)
+            console.log(myBook);
         })
     },[user])
     

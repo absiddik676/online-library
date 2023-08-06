@@ -8,7 +8,6 @@ const SingleBook = ({ book }) => {
     const { title, author, category, copies, description, img } = book;
     const {user} = useContext(AuthContext)
     const user1 = useStudent()
-    console.log(user1);
     const handelRequest = (book) =>{
         const reqBookData = {
             title:book?.title,
@@ -32,6 +31,7 @@ const SingleBook = ({ book }) => {
                     <div>
                         <h1 className='text-xl font-semibold font-montserrat'>{title}</h1>
                         <p className='text my-2'>By {author}</p>
+                        <p><span className='font-bold mb-2'>Category:</span> {category}</p>
                         <p>{description}</p>
                         <h4 className='text-lg font-semibold'>Available book: {copies}</h4>
 

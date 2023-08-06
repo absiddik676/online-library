@@ -21,8 +21,9 @@ const Dashboard = () => {
             {/* Sidebar content here */}
             {
               isAdmin === 'Admin' ? <>
-                <NavLink to='/dashboard/addbook' className="mb-2">Add Book</NavLink>
-                <NavLink to='/dashboard/alluser'>Manage User</NavLink>
+                <NavLink to='/dashboard/addbook' className="mb-2">Add A Book</NavLink>
+                <NavLink to='/dashboard/alluser'>Manage Users</NavLink>
+                <NavLink to='/dashboard/AllReqBook'>Requested Books </NavLink>
               </> : <>
                 <NavLink to='/dashboard/reqBook' className="mb-2">My Requested Book</NavLink>
               </>

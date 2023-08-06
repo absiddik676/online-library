@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import lottie from 'lottie-web';
 import { useForm } from "react-hook-form";
 import animationData from '../../assets/animation/animation_lkwwbwgq.json';
@@ -8,6 +8,9 @@ import axios from 'axios';
 const Signup = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const {createUser,addUserNameAndPhoto} = useContext(AuthContext)
+    const navigate = useNavigate();
+    const location = useLocation();
+    const formLocation = location.state?.form?.pathname || '/';
     const LottieAnimation = () => {
         const animationContainer = useRef(null);
         useEffect(() => {
@@ -46,11 +49,12 @@ const Signup = () => {
             addUserNameAndPhoto(data.name, photoURL );
             reset()
             const saveUser = { name: data.name, email: data.email, gender:data.gender, role:'student',img:photoURL}
-            console.log(saveUser);
             axios.post('http://localhost:80/linrayAPI/index.php?url=/saveUser',saveUser)
             .then(res=>{
                 reset()
+                navigate(formLocation, { replace: true });
                 console.log(res.data);
+
             })
         })
         .catch(error  =>{

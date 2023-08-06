@@ -1,13 +1,16 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import lottie from 'lottie-web';
 import { useForm } from "react-hook-form";
 import animationData from '../../assets/animation/animation_lkwut5db.json';
 import { AuthContext } from '../../provider/AuthProvider';
 const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
-    const {loginUser} = useContext(AuthContext)
+    const {loginUser} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const formLocation = location.state?.form?.pathname || '/';
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     };
@@ -35,7 +38,8 @@ const Login = () => {
         console.log(data);
         loginUser(data.email,data.password)
         .then(result =>{
-            console.log(result);
+           reset();
+           navigate(formLocation, { replace: true });
         })
         .catch(error=>{
             console.log(error);
