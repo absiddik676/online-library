@@ -16,9 +16,9 @@ const SingleBook = ({ book }) => {
             studentName:user1?.isStudent?.[0]?.name,
             studentID:user1?.isStudent?.[0]?.id,
             studentEmail:user1?.isStudent?.[0]?.email,
-            bookImg:book?.img
+            bookImg:book?.img,
+            author:book?.author
         }
-        console.log(reqBookData);
         axios.post('http://localhost:80/linrayAPI/index.php?url=/requestedBook',reqBookData)
             .then(res=>{
                 console.log(res.data);

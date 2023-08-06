@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { TbSquareRotatedFilled } from "react-icons/tb";
+import useStudent from '../Hooks/useStudent';
 
 const Dashboard = () => {
+  const { isStudent, isStudentLoading } = useStudent()
+  const isAdmin = isStudent?.[0]?.role;
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -16,9 +19,16 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-64 h-full bg-[#262626] text-white text-lg font-semibold">
             {/* Sidebar content here */}
-            <NavLink to='/dashboard/addbook' className="mb-2">Add Book</NavLink>
-            <NavLink to='/dashboard/reqBook' className="mb-2">My Requested Book</NavLink>
-            <NavLink to='/dashboard/alluser'>Manage User</NavLink>
+            {
+              isAdmin === 'Admin' ? <>
+                <NavLink to='/dashboard/addbook' className="mb-2">Add Book</NavLink>
+                <NavLink to='/dashboard/alluser'>Manage User</NavLink>
+              </> : <>
+                <NavLink to='/dashboard/reqBook' className="mb-2">My Requested Book</NavLink>
+              </>
+            }
+
+
             <div className="flex items-center w-full mt-6">
               <div className="border-t border-white  w-36 h-0 flex-1 mr-3"></div>
               <TbSquareRotatedFilled className='text-white ' size={15} />

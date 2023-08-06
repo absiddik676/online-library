@@ -10,7 +10,6 @@ const AllUser = () => {
         const res = await axios.get(`http://localhost:80/linrayAPI/index.php?url=/alluser`)
         return res.data
     })
-    console.log(users);
     return (
         <div>
             <h1 className='text-2xl font-semibold text-center mt-3'>Manage User</h1>
