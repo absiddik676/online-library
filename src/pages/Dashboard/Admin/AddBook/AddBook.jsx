@@ -3,6 +3,7 @@ import { TbSquareRotatedFilled } from "react-icons/tb";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import Spinner from '../../../../components/Spinner';
 const AddBook = () => {
     const { register, handleSubmit,  formState: { errors }, reset } = useForm();
     const onSubmit = data => {

@@ -5,6 +5,7 @@ import React from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { TbSquareRotatedFilled } from "react-icons/tb";
 const ManageIssuedBook = () => {
+    
     const { data: books = [], refetch } = useQuery({
         queryKey: ['notApproveBook'],
         queryFn: async () => {
@@ -14,8 +15,7 @@ const ManageIssuedBook = () => {
         }
 
     })
-    console.log(books);
-    return (
+        return (
         <div>
             <h1 className='text-2xl font-semibold text-center mt-3'>Manage Issued Book</h1>
             <div className='flex justify-center items-center'>
