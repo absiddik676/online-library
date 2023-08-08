@@ -3,19 +3,28 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../../provider/AuthProvider';
 import { TbSquareRotatedFilled } from "react-icons/tb";
 import SingleMyReqBook from '../SingleMyReqBook/SingleMyReqBook';
+import { useQuery } from '@tanstack/react-query';
 const MyReqBook = () => {
     const {user,loading} = useContext(AuthContext)
-    const [books,setBooks] = useState([]);
-    useEffect(()=>{
-        axios.get('http://localhost:80/linrayAPI/index.php?url=/allreqbook')
-        .then(res=>{
+    const { data: books = [], refetch } = useQuery({
+        queryKey: ['notApproveBook'],
+        enabled:!loading,
+        queryFn: async () => {
+            const res = await axios.get(`http://localhost:80/linrayAPI/index.php?url=/allreqbook`)
             const myBook = res?.data.filter(book=>book?.studentEmail === user?.email);
             const notApproveBook = myBook.filter(book => book?.status === '')
-            setBooks(notApproveBook)
-            console.log(notApproveBook);
+            return notApproveBook
+        }
+    })
+    console.log(books);
+    const handelDelete = (id) =>{
+        console.log(id);
+        axios.delete(`http://localhost/linrayAPI/index.php?url=/requestredbook/delete&id=${id}`)
+        .then(res =>{
+            refetch()
+            console.log(res.data);
         })
-    },[user])
-    console.log(books.filter(book=>book.status === 'approved'))
+    }
     return (
         <div>
             <h1 className='text-2xl font-semibold text-center mt-3'>My Requested Book</h1>
@@ -29,7 +38,7 @@ const MyReqBook = () => {
             </div>
             <div className='grid grid-cols-3 gap-5 mx-3 mt-5'>
                 {
-                    books.map(book=><SingleMyReqBook key={book.id} book={book}></SingleMyReqBook>)
+                    books.map(book=><SingleMyReqBook key={book.id} handelDelete={handelDelete} book={book}></SingleMyReqBook>)
                 }
             </div>
         </div>

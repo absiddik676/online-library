@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
-const SingleMyReqBook = ({book}) => {
-    const {bookImg,title,author} = book
+const SingleMyReqBook = ({book,handelDelete}) => {
+    const {bookImg,title,author,id} = book;
     return (
         <div>
              <div className=" bg-gray-100 flex rounded-xl items-center">
@@ -15,7 +15,7 @@ const SingleMyReqBook = ({book}) => {
                             <p className="mt-2">By {author}</p>
                         </div>
                         <div className=' justify-end flex'>
-                            <button className="text-white text-md flex justify-center items-center gap-1 font-semibold bg-red-500 py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-105 mt-3 "><AiOutlineClose className="w-5 h-5" /> Remove</button>
+                            <button onClick={()=>handelDelete(id)} className="text-white text-md flex justify-center items-center gap-1 font-semibold bg-red-500 py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-105 mt-3 "><AiOutlineClose className="w-5 h-5" /> Remove</button>
                         </div>
                     </div>
                 </div>
