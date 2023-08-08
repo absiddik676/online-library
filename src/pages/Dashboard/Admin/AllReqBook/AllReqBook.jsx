@@ -31,7 +31,7 @@ const AllReqBook = () => {
                     <div className="border-t-2 border-blue-800 h-0 flex-1 ml-3"></div>
                 </div>
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto mt-5">
                 <table className="table">
                     {/* head */}
                     <thead>

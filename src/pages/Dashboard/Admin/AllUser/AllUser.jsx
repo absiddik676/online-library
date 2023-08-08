@@ -24,7 +24,7 @@ const AllUser = () => {
                 </div>
             </div>
             <div>
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto mt-5">
                     <table className="table">
                         {/* head */}
                         <thead>
@@ -76,8 +76,6 @@ const AllUser = () => {
                                     </th>
                                 </tr>)
                             }
-
-
 
                         </tbody>
 
