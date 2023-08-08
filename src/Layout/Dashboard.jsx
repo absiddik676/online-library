@@ -26,6 +26,7 @@ const Dashboard = () => {
                 <NavLink to='/dashboard/AllReqBook'>Requested Books </NavLink>
               </> : <>
                 <NavLink to='/dashboard/reqBook' className="mb-2">My Requested Book</NavLink>
+                <NavLink to='/dashboard/MyIssuedBook' className="mb-2">My Issued Book</NavLink>
               </>
             }
 

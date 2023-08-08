@@ -9,12 +9,13 @@ const MyReqBook = () => {
     useEffect(()=>{
         axios.get('http://localhost:80/linrayAPI/index.php?url=/allreqbook')
         .then(res=>{
-            const myBook = res?.data.filter(book=>book?.studentEmail === user?.email)
-            setBooks(myBook)
-            console.log(myBook);
+            const myBook = res?.data.filter(book=>book?.studentEmail === user?.email);
+            const notApproveBook = myBook.filter(book => book?.status === '')
+            setBooks(notApproveBook)
+            console.log(notApproveBook);
         })
     },[user])
-    
+    console.log(books.filter(book=>book.status === 'approved'))
     return (
         <div>
             <h1 className='text-2xl font-semibold text-center mt-3'>My Requested Book</h1>

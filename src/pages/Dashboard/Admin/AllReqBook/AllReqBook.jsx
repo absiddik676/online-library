@@ -2,15 +2,24 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { TbSquareRotatedFilled } from "react-icons/tb";
 import { FaCheckCircle } from 'react-icons/fa';
+import { useQuery } from '@tanstack/react-query';
 const AllReqBook = () => {
-    const [books, setBooks] = useState([]);
-    useEffect(() => {
-        axios.get('http://localhost:80/linrayAPI/index.php?url=/allreqbook')
-            .then(res => {
-                setBooks(res.data)
-            })
-    }, [])
-    console.log(books);
+    const { data: allReqBook = [], refetch } = useQuery(['user'], async () => {
+        const res = await axios.get(`http://localhost:80/linrayAPI/index.php?url=/allreqbook`)
+        const notApproveData = res.data.filter(book => book.status  === '');
+        return notApproveData
+    })
+
+    const handelApprove  =  (book) =>{
+        const date = new Date()
+        const newStatus = 'approved';
+        axios.patch(`http://localhost/linrayAPI/index.php?url=/requestredbook/update&id=${book.id}`, {
+        status: newStatus,issueDate:date})
+        .then(res=>{
+            console.log(res.data);
+            refetch()
+        })
+    }
     return (
         <div>
             <h1 className='text-2xl font-semibold text-center mt-3'>All Requested Books</h1>
@@ -38,7 +47,7 @@ const AllReqBook = () => {
                     </thead>
                     <tbody>
                         {
-                            books.map((book, index) => <tr className='p-0'  key={book.id}>
+                            allReqBook.map((book, index) => <tr className='p-0'  key={book.id}>
                                 <td className='pb-0'>{index + 1}</td>
                                 <td className='pb-0'>{book?.studentID}</td>
                                 <td className='pb-0'>{book?.studentName}</td>
@@ -59,7 +68,7 @@ const AllReqBook = () => {
                                         <div class="flex justify-center items-baseline flex-wrap">
 
                                             <div class="flex m-2">
-                                                <button class="text-base  rounded-l-none rounded-r-none border-l-1 border-r-1  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
+                                                <button onClick={()=>handelApprove(book)} class="text-base  rounded-l-none rounded-r-none border-l-1 border-r-1  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
         hover:bg-teal-700 hover:text-teal-100 
         bg-teal-100 
         text-teal-700 
