@@ -23,7 +23,8 @@ const Dashboard = () => {
               isAdmin === 'Admin' ? <>
                 <NavLink to='/dashboard/addbook' className="mb-2">Add A Book</NavLink>
                 <NavLink to='/dashboard/alluser'>Manage Users</NavLink>
-                <NavLink to='/dashboard/AllReqBook'>Requested Books </NavLink>
+                <NavLink to='/dashboard/AllReqBook' className='my-2'>Requested Books </NavLink>
+                <NavLink to='/dashboard/manageReqBook'> Manage Issued Books </NavLink>
               </> : <>
                 <NavLink to='/dashboard/reqBook' className="mb-2">My Requested Book</NavLink>
                 <NavLink to='/dashboard/MyIssuedBook' className="mb-2">My Issued Book</NavLink>
@@ -37,7 +38,7 @@ const Dashboard = () => {
               <TbSquareRotatedFilled className='text-white ' size={15} />
               <div className="border-t border-white  h-0 flex-1 ml-3"></div>
             </div>
-            <NavLink to='/'>Home</NavLink>
+            <NavLink to='/' className='mt-3'>Home</NavLink>
             <NavLink to='/books'>Books</NavLink>
           </ul>
 
