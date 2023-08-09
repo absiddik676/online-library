@@ -11,7 +11,7 @@ const useStudent = () => {
         enabled: !loading,
         queryFn: async () => {
             const res = await axios.get(`http://localhost:80/linrayAPI/index.php?url=/alluser`)
-            const chack = res.data.filter(curr => curr.email === user.email)
+            const chack = res?.data.filter(curr => curr?.email === user?.email)
             return chack
         }
     })
