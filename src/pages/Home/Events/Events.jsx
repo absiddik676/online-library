@@ -28,7 +28,7 @@ const Events = () => {
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
                                 <GoTriangleRight className='text-yellow-500' size={40} />
-                                <h1 className='text-xl font-semibold text-gray-500'>July 20,2017</h1>
+                                <h1 className='text-xl font-semibold text-gray-500'>July 20,2023</h1>
                             </div>
                             <h1 className='text-xl font-semibold text-gray-500'>02.30 Am</h1>
                         </div>
@@ -42,7 +42,7 @@ const Events = () => {
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
                                 <GoTriangleRight className='text-yellow-500' size={40} />
-                                <h1 className='text-xl font-semibold text-gray-500'>July 20,2017</h1>
+                                <h1 className='text-xl font-semibold text-gray-500'>July 20,2023</h1>
                             </div>
                             <h1 className='text-xl font-semibold text-gray-500'>02.30 Am</h1>
                         </div>

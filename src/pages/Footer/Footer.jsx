@@ -27,10 +27,10 @@ const Footer = () => {
                 <div>
                     <span className="footer-title">Contact Us</span>
                     <a className="link link-hover flex gap-3"><MdLocationOn size={24} /><span>
-                        3050 Universal Blvd #190 Fort Lauderdale, <br /> FL, 33331, Sydney New York City</span></a>
-                    <a className="link link-hover flex gap-3"><FiMail size={24} /><span>susislibrary@domain.com</span></a>
+                        barisal polytechnic institute, <br />  Barishal Bangladesh</span></a>
+                    <a className="link link-hover flex gap-3"><FiMail size={24} /><span>onlineLibrary@domain.com</span></a>
                     <a className="link link-hover flex gap-3"><AiOutlinePhone size={24} /><span>+62 582 528 527 21</span></a>
-                    <a className="link link-hover flex gap-3"><FaGlobe size={24} /><span>www.susislibrary.com
+                    <a className="link link-hover flex gap-3"><FaGlobe size={24} /><span>www.onlineLibrary.com
                     </span></a>
                 </div>
                 <div>

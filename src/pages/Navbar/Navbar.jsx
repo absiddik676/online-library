@@ -4,6 +4,7 @@ import ActiveRoute from '../../Routes/ActiveRoute';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FiLogOut, FiLogIn } from 'react-icons/fi';
 import useStudent from '../../Hooks/useStudent';
+import logo from '../../assets/logo/books_8213300.png'
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
   const [navbarBg, setNavbarBg] = useState(false);
@@ -42,7 +43,15 @@ const Navbar = () => {
               <ActiveRoute to='/dashboard'>Books</ActiveRoute>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <Link to='/' className='flex  justify-center items-center'>
+            <img className='w-16' src={logo} alt="" />
+            <div>
+            <div className='flex items-center justify-center'>
+              <h1 className='text-white leading-3 mb-1 font-semibold text-lg'>Online library  </h1>
+            </div>
+            <h1 className='text-white leading-3 mt-2 font-semibold text-lg'>Management System</h1>
+            </div>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal text-white text-md gap-4 px-1">
