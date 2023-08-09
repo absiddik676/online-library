@@ -56,8 +56,9 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal text-white text-md gap-4 px-1">
             <ActiveRoute to='/'>Home</ActiveRoute>
-            {user1?.isStudentLoading ? 'Dashboard' : <ActiveRoute to={`${user1?.isStudent?.[0]?.role === 'student' ?'/dashboard/reqBook' : '/dashboard/addbook'} `}>Dashboard</ActiveRoute>}
             <ActiveRoute to='/books'>Books</ActiveRoute>
+            {user1?.isStudentLoading ? 'Dashboard' : <ActiveRoute to={`${user1?.isStudent?.[0]?.role === 'student' ?'/dashboard/reqBook' : '/dashboard/addbook'} `}>Dashboard</ActiveRoute>}
+            
           </ul>
         </div>
         <div className="navbar-end">

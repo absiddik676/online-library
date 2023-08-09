@@ -8,6 +8,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const {loginUser} = useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
     const formLocation = location.state?.form?.pathname || '/';
@@ -43,6 +44,11 @@ const Login = () => {
         })
         .catch(error=>{
             console.log(error);
+            if (error.message === 'Firebase: Error (auth/wrong-password).') {
+                setErrorMessage('Wrong password');
+            } else {
+                setErrorMessage('An error occurred. Please try again.');
+            }
         })
     }
 
@@ -114,7 +120,7 @@ const Login = () => {
                                    Login
                                 </button>
                             </form>
-                        
+                            {errorMessage && <p className='text-red-600 text-center'>{errorMessage}</p>}
                             <p>New here? <Link to='/signUp' className='text-blue-600'>Create a New Account</Link></p>
                         </div>
                         <div className='flex justify-center mb-6'>

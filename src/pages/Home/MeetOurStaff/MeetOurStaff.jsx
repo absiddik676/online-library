@@ -73,7 +73,7 @@ const MeetOurStaff = () => {
                                 <TbSquareRotatedFilled className='text-gray-400' />
                                 <div className="border-t-2 border-gray-400 h-0 flex-1 "></div>
                             </div>
-                            <h1 className='text-2xl font-semibold text-gray-500 '>Ab siddik</h1>
+                            <h1 className='text-2xl font-semibold text-gray-500 '>Charlie</h1>
                             <p className='my-2'>Manager</p>
                             <div className='flex gap-7 mb-7'>
                                 <FaFacebook size={20} color="#3b5998" />
@@ -87,7 +87,7 @@ const MeetOurStaff = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className='flex flex-col justify-center items-center border '>
-                            <h1 className='text-2xl font-semibold text-gray-500 mt-2'>Ab siddik</h1>
+                            <h1 className='text-2xl font-semibold text-gray-500 mt-2'>Amelia</h1>
                             <p className='my-2'>Librarian</p>
                             <div className='flex gap-7'>
                                 <FaFacebook size={20} color="#3b5998" />
@@ -111,7 +111,7 @@ const MeetOurStaff = () => {
                                 <TbSquareRotatedFilled className='text-gray-400' />
                                 <div className="border-t-2 border-gray-400 h-0 flex-1 "></div>
                             </div>
-                            <h1 className='text-2xl font-semibold text-gray-500 '>Ab siddik</h1>
+                            <h1 className='text-2xl font-semibold text-gray-500 '>James</h1>
                             <p className='my-2'>Manager</p>
                             <div className='flex gap-7 mb-7'>
                                 <FaFacebook size={20} color="#3b5998" />
@@ -149,7 +149,7 @@ const MeetOurStaff = () => {
                                 <TbSquareRotatedFilled className='text-gray-400' />
                                 <div className="border-t-2 border-gray-400 h-0 flex-1 "></div>
                             </div>
-                            <h1 className='text-2xl font-semibold text-gray-500 '>Ab siddik</h1>
+                            <h1 className='text-2xl font-semibold text-gray-500 '>William</h1>
                             <p className='my-2'>Manager</p>
                             <div className='flex gap-7 mb-7'>
                                 <FaFacebook size={20} color="#3b5998" />
