@@ -39,6 +39,7 @@ const MyIssuedBook = () => {
                             <th>Book ID</th>
                             <th>Issue Date</th>
                             <th>Return Date</th>
+                            <th>Return States</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,6 +62,7 @@ const MyIssuedBook = () => {
                                 <td>{moment(book?.issueDate).format("MMM Do YYYY")}</td>
                                 <td> { moment(book?.issueDate).add(7, 'days').format("MMM Do YYYY") }
                                 </td>
+                                <td>{book?.returnStatus === 'returned' ? 'Returned' : 'Not Returned Yet'}</td>
 
                             </tr>)
                         }

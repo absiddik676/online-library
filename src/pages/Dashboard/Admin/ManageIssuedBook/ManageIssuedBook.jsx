@@ -15,6 +15,19 @@ const ManageIssuedBook = () => {
         }
 
     })
+    const handelReturn = (book) =>{
+        console.log(book);
+        const newStatus = 'returned';
+        axios.patch(`http://localhost/linrayAPI/index.php?url=/requestredbook/returnStatus&id=${book.id}`, {
+        returnStatus: newStatus})
+        .then(res=>{
+            console.log(res.data);
+            refetch()
+        })
+    }
+    console.log(books);
+
+   
         return (
         <div>
             <h1 className='text-2xl font-semibold text-center mt-3'>Manage Issued Book</h1>
@@ -50,15 +63,13 @@ const ManageIssuedBook = () => {
                                 <td>{book.studentName}</td>
                                 <td>{moment(book?.issueDate).format("MMM Do YYYY")}</td>
                                 <td> {moment(book?.issueDate).add(7, 'days').format("MMM Do YYYY")}</td>
-                                <td className='flex justify-center'>  <button
+                                <td className='flex justify-center'> {book?.returnStatus === 'returned'? "returned" :<button
                                     className="flex items-center border rounded-md hover:bg-blue-400 hover:text-white px-3 py-1 space-x-2 text-blue-500  focus:outline-none"
-                                    onClick={() => {
-                                        // Implement your return logic here
-                                    }}
+                                    onClick={() => handelReturn(book)}
                                 >
                                     <IoIosArrowBack size={20} />
                                     <span>Returned</span>
-                                </button></td>
+                                </button>}</td>
                             </tr>)
                         }
 
