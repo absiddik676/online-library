@@ -57,7 +57,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal text-white text-md gap-4 px-1">
             <ActiveRoute to='/'>Home</ActiveRoute>
             <ActiveRoute to='/books'>Books</ActiveRoute>
-            {user1?.isStudentLoading ? <Link >Dashboard</Link> : <ActiveRoute to={`${user1?.isStudent?.[0]?.role === 'student' ?'/dashboard/reqBook' : '/dashboard/addbook'} `}>Dashboard</ActiveRoute>}
+            {user1?.isStudentLoading ? 'Dashboard' : <ActiveRoute to={`${user1?.isStudent?.[0]?.role === 'student' ?'/dashboard/reqBook' : '/dashboard/addbook'} `}>Dashboard</ActiveRoute>}
             
           </ul>
         </div>
